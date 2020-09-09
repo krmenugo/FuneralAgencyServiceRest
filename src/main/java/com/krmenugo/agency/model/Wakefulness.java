@@ -31,5 +31,15 @@ public class Wakefulness {
 	public void setWakefulnessPlace(String wakefulnessPlace) {
 		this.wakefulnessPlace = wakefulnessPlace;
 	}
+
+	public Wakefulness() {
+		super();
+	}
+
+	public Wakefulness(int idWakefulness, String wakefulnessPlace) {
+		super();
+		this.idWakefulness = idWakefulness;
+		this.wakefulnessPlace = wakefulnessPlace;
+	}
 	
 }

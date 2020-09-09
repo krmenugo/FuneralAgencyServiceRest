@@ -19,6 +19,17 @@ public class FuturePlan {
 	@Column(name="cost")
 	private float cost;
 
+	public FuturePlan() {
+		super();
+	}
+
+	public FuturePlan(int idFuturePlan, String futurePlanName, float cost) {
+		super();
+		this.idFuturePlan = idFuturePlan;
+		this.futurePlanName = futurePlanName;
+		this.cost = cost;
+	}
+
 	public int getIdFuturePlan() {
 		return idFuturePlan;
 	}

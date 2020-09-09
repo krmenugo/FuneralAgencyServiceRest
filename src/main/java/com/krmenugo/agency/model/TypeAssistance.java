@@ -31,5 +31,15 @@ public class TypeAssistance {
 	public void setTypeAssistanceName(String typeAssistanceName) {
 		this.typeAssistanceName = typeAssistanceName;
 	}
+
+	public TypeAssistance() {
+		super();
+	}
+
+	public TypeAssistance(int idTypeAssistance, String typeAssistanceName) {
+		super();
+		this.idTypeAssistance = idTypeAssistance;
+		this.typeAssistanceName = typeAssistanceName;
+	}
 	
 }

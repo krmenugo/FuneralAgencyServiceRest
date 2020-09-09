@@ -18,59 +18,89 @@ public class Assistance {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idAssistance;
 	
-	@Column(name = "coordinatorName", length = 50)
+	@Column(name = "coordinatorName", length = 50, nullable =false)
 	private String coordinatorName;
 	
-	@Column(name = "hiringDate")
+	@Column(name = "hiringDate", nullable =false)
 	private Date hiringDate;
 	
-	@Column(name = "finishDate")
+	@Column(name = "finishDate", nullable =false)
 	private Date finishDate;
 	
-	@Column(name = "deceasedName", length = 50)
+	@Column(name = "deceasedName", length = 50, nullable =false)
 	private String deceasedName;
 	
-	@Column(name = "birthDate")
+	@Column(name = "birthDate", nullable =false)
 	private Date birthDate;
 	
-	@Column(name = "deathDate")
+	@Column(name = "deathDate", nullable =false)
 	private Date deathDate;
 	
-	@Column(name = "location", length = 50)
+	@Column(name = "location", length = 50, nullable =false)
 	private String location;
 	
-	@Column(name = "adviserName", length = 50)
+	@Column(name = "adviserName", length = 50, nullable =true)
 	private String adviserName;
 	
-	@Column(name = "contactPersonName1", length = 50)
+	@Column(name = "contactPersonName1", length = 50, nullable =false)
 	private String contactPersonName1;
 	
-	@Column(name = "contactPersonName2", length = 50)
+	@Column(name = "contactPersonName2", length = 50, nullable =false)
 	private String contactPersonName2;
 	
-	@Column(name = "contactPersonTelephone1", length = 10)
+	@Column(name = "contactPersonTelephone1", length = 10, nullable =false)
 	private String contactPersonTelephone1;
 	
-	@Column(name = "contactPersonTelephone2", length = 10)
+	@Column(name = "contactPersonTelephone2", length = 10, nullable =false)
 	private String contactPersonTelephone2;
 	
-	@Column(name = "timeReligiousCeremony", length = 10)
+	@Column(name = "timeReligiousCeremony", length = 10, nullable =false)
 	private Time timeReligiousCeremony;
 	
-	@Column(name = "placeReligiousCeremony", length = 50)
+	@Column(name = "placeReligiousCeremony", length = 50, nullable =false)
 	private String placeReligiousCeremony;
 
 	@OneToOne//(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idFuturePlan", referencedColumnName = "idFuturePlan")
+    @JoinColumn(name = "idFuturePlan", referencedColumnName = "idFuturePlan", nullable =false)
     private FuturePlan idFuturePlan;
 	
 	@OneToOne//(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idTypeAssistance", referencedColumnName = "idTypeAssistance")
+    @JoinColumn(name = "idTypeAssistance", referencedColumnName = "idTypeAssistance", nullable =false)
     private TypeAssistance idTypeAssistance;
 
 	@OneToOne//(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idWakefulness", referencedColumnName = "idWakefulness")
+    @JoinColumn(name = "idWakefulness", referencedColumnName = "idWakefulness", nullable =false)
     private Wakefulness idWakefulness;
+	
+	public Assistance() {
+		super();
+	}
+
+	public Assistance(int idAssistance, String coordinatorName, Date hiringDate, Date finishDate, String deceasedName,
+			Date birthDate, Date deathDate, String location, String adviserName, String contactPersonName1,
+			String contactPersonName2, String contactPersonTelephone1, String contactPersonTelephone2,
+			Time timeReligiousCeremony, String placeReligiousCeremony, FuturePlan idFuturePlan,
+			TypeAssistance idTypeAssistance, Wakefulness idWakefulness) {
+		super();
+		this.idAssistance = idAssistance;
+		this.coordinatorName = coordinatorName;
+		this.hiringDate = hiringDate;
+		this.finishDate = finishDate;
+		this.deceasedName = deceasedName;
+		this.birthDate = birthDate;
+		this.deathDate = deathDate;
+		this.location = location;
+		this.adviserName = adviserName;
+		this.contactPersonName1 = contactPersonName1;
+		this.contactPersonName2 = contactPersonName2;
+		this.contactPersonTelephone1 = contactPersonTelephone1;
+		this.contactPersonTelephone2 = contactPersonTelephone2;
+		this.timeReligiousCeremony = timeReligiousCeremony;
+		this.placeReligiousCeremony = placeReligiousCeremony;
+		this.idFuturePlan = idFuturePlan;
+		this.idTypeAssistance = idTypeAssistance;
+		this.idWakefulness = idWakefulness;
+	}
 
 	public int getIdAssistance() {
 		return idAssistance;
