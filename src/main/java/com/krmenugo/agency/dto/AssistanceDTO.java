@@ -23,11 +23,11 @@ public class AssistanceDTO {
 	@NotNull(message = "The coordinator name parameter is mandatory.")
 	private String coordinatorName;
 
-	@NotNull(message = "The hiring date parameter is mandatory.")
+	//@NotNull(message = "The hiring date parameter is mandatory.")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
 	private Date hiringDate;
 
-	@NotNull(message = "The finish date parameter is mandatory.")
+	//@NotNull(message = "The finish date parameter is mandatory.")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
 	private Date finishDate;
 
@@ -35,11 +35,11 @@ public class AssistanceDTO {
 	@NotNull(message = "The deceased name parameter is mandatory.")
 	private String deceasedName;
 
-	@NotNull(message = "The birth date parameter is mandatory.")
+	//@NotNull(message = "The birth date parameter is mandatory.")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
 	private Date birthDate;
 
-	@NotNull(message = "The death date parameter is mandatory.")
+	//@NotNull(message = "The death date parameter is mandatory.")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
 	private Date deathDate;
 
@@ -67,7 +67,7 @@ public class AssistanceDTO {
 	@NotNull(message = "The contact person telephone 2 parameter is mandatory.")
 	private String contactPersonTelephone2;
 
-	@NotNull(message = "The time religious ceremony parameter is mandatory.")
+	//@NotNull(message = "The time religious ceremony parameter is mandatory.")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm")
 	private Time timeReligiousCeremony;
 
@@ -262,10 +262,7 @@ public class AssistanceDTO {
 	}
 
 	public Assistance parseToModel() {
-		return new Assistance(idAssistance, coordinatorName, hiringDate, finishDate, deceasedName, birthDate, deathDate,
-				location, adviserName, contactPersonName1, contactPersonName2, contactPersonTelephone1,
-				contactPersonTelephone2, timeReligiousCeremony, placeReligiousCeremony, idFuturePlan, idTypeAssistance,
-				idWakefulness);
+		return new Assistance(idAssistance, coordinatorName, hiringDate, finishDate, deceasedName, birthDate, deathDate, location, adviserName, contactPersonName1, contactPersonName2, contactPersonTelephone1, contactPersonTelephone2, timeReligiousCeremony, placeReligiousCeremony);
 	}
 
 	public AssistanceDTO parseToDTO(Assistance assistance) {
@@ -284,9 +281,12 @@ public class AssistanceDTO {
 		this.setContactPersonTelephone2(assistance.getContactPersonTelephone2());
 		this.setTimeReligiousCeremony(assistance.getTimeReligiousCeremony());
 		this.setPlaceReligiousCeremony(assistance.getPlaceReligiousCeremony());
-		this.setFuturePlanName(assistance.getIdFuturePlan().getFuturePlanName());
-		this.setTypeAssistanceName(assistance.getIdTypeAssistance().getTypeAssistanceName());
-		this.setWakefulnessPlace(assistance.getIdWakefulness().getWakefulnessPlace());
+		this.setIdFuturePlan(assistance.getIdFuturePlan());
+		this.setIdTypeAssistance(assistance.getIdTypeAssistance());
+		this.setIdWakefulness(assistance.getIdWakefulness());
+//		this.setFuturePlanName(assistance.getIdFuturePlan().getFuturePlanName());
+//		this.setTypeAssistanceName(assistance.getIdTypeAssistance().getTypeAssistanceName());
+//		this.setWakefulnessPlace(assistance.getIdWakefulness().getWakefulnessPlace());
 		return this;
 	}
 

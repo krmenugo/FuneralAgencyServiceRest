@@ -30,7 +30,7 @@ public class AssistanceController extends BaseController {
 		return new AssistanceDTO().parseToDTO(this.service.findById(idAssistance));
 	}
 	
-	// TODO PROBLEMAS CON EL FORMATO DE FECHA
+	// TODO PROBLEMAS CON EL FORMATO DE FECHA, ERROR HttpMessageNotReadableException
 	@PostMapping("/create")
 	public AssistanceDTO createAssistance(@Valid @RequestBody Assistance model) {
 		return new AssistanceDTO().parseToDTO(this.service.create(model));

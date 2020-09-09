@@ -11,7 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties(value = { "createdAt", "updatedAt", "hibernateLazyInitializer", "handler" })
 public class Assistance {
 	
 	@Id
@@ -60,15 +63,15 @@ public class Assistance {
 	@Column(name = "placeReligiousCeremony", length = 50, nullable =false)
 	private String placeReligiousCeremony;
 
-	@OneToOne//(cascade = CascadeType.ALL)
+	@OneToOne
     @JoinColumn(name = "idFuturePlan", referencedColumnName = "idFuturePlan", nullable =false)
     private FuturePlan idFuturePlan;
 	
-	@OneToOne//(cascade = CascadeType.ALL)
+	@OneToOne
     @JoinColumn(name = "idTypeAssistance", referencedColumnName = "idTypeAssistance", nullable =false)
     private TypeAssistance idTypeAssistance;
 
-	@OneToOne//(cascade = CascadeType.ALL)
+	@OneToOne
     @JoinColumn(name = "idWakefulness", referencedColumnName = "idWakefulness", nullable =false)
     private Wakefulness idWakefulness;
 	
@@ -79,8 +82,7 @@ public class Assistance {
 	public Assistance(int idAssistance, String coordinatorName, Date hiringDate, Date finishDate, String deceasedName,
 			Date birthDate, Date deathDate, String location, String adviserName, String contactPersonName1,
 			String contactPersonName2, String contactPersonTelephone1, String contactPersonTelephone2,
-			Time timeReligiousCeremony, String placeReligiousCeremony, FuturePlan idFuturePlan,
-			TypeAssistance idTypeAssistance, Wakefulness idWakefulness) {
+			Time timeReligiousCeremony, String placeReligiousCeremony) {
 		super();
 		this.idAssistance = idAssistance;
 		this.coordinatorName = coordinatorName;
@@ -97,9 +99,6 @@ public class Assistance {
 		this.contactPersonTelephone2 = contactPersonTelephone2;
 		this.timeReligiousCeremony = timeReligiousCeremony;
 		this.placeReligiousCeremony = placeReligiousCeremony;
-		this.idFuturePlan = idFuturePlan;
-		this.idTypeAssistance = idTypeAssistance;
-		this.idWakefulness = idWakefulness;
 	}
 
 	public int getIdAssistance() {
